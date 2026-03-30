@@ -1,0 +1,94 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+    @media print {
+        @page {
+            size: A4;
+        }
+
+        body {
+            background: white !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            /* width: max-content; */
+            min-height: 297mm;
+            overflow: visible !important;
+            /* Ensure content is visible */
+        }
+
+        #root {
+            width: 100%;
+            height: 100%;
+            overflow: visible !important;
+        }
+
+        .print-no-break {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .print-hide {
+            display: none !important;
+        }
+
+        /* Force all sections to be visible and remove scrollbars */
+        * {
+            overflow: visible !important;
+            scrollbar-width: none !important;
+            box-sizing: border-box !important;
+        }
+
+        ::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        /* Reset font sizes for better fit on A4 */
+        html {
+            font-size: 12px;
+        }
+
+        p,
+        span,
+        div,
+        h1,
+        h2,
+        h3,
+        h4 {
+            overflow: visible !important;
+            word-wrap: break-word !important;
+        }
+
+        .card,
+        section,
+        .print-no-break {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+    }
+}
+
+/* Custom transitions and glass effects */
+.glass-panel {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Scrollbar hiding utilities */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Component balance utilities */
+.equal-height-grid {
+    display: grid;
+    align-items: stretch;
+}
